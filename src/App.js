@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Component/Header/Header';
+import Home from './Component/Home/Home';
+import Shipment from './Component/Shipment/Shipment';
+import { useState } from 'react';
+import { createContext } from 'react';
+import ReducerCount from './Component/ReducerCount/ReducerCount';
+import PataintReducer from './Component/PataintReducer/PataintReducer';
+import PatientManagement from './Component/PatientManagement/PatientManagement';
+
+export const CategoryContext = createContext();
 
 function App() {
+  const [category, setCategory] = useState('laptop');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CategoryContext.Provider value={[category, setCategory]}>
+      {/* <Header/>
+      <Home/>
+      <Shipment/>
+      <ReducerCount/> */}
+      <PatientManagement/>
+    </CategoryContext.Provider>
   );
 }
 
